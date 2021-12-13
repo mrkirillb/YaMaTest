@@ -22,12 +22,12 @@ public class PageFilters {
     }
 
     @FindBy(xpath = "//section[contains(@data-zone-name,'all-filters-page')]")
-    WebElement headElement;
+    WebElement elementHead;
 
     public void checkHead(String itemName){
         Wait<WebDriver> wait = new WebDriverWait(MainSteps.getDriver(), 10, 1000);
-        wait.until(ExpectedConditions.visibilityOf(headElement));
-        assertEquals(itemName,headElement.findElement((By.xpath("//h1[contains(text(),'"+itemName+"')]"))).getText());
+        wait.until(ExpectedConditions.visibilityOf(elementHead));
+        assertEquals(itemName,elementHead.findElement((By.xpath("//h1[contains(text(),'"+itemName+"')]"))).getText());
     }
 
     @FindBy(xpath = "//div[contains(@data-filter-id,'glprice')]//div[contains(@data-prefix,'от')]//input[contains(@type,'text')]")
